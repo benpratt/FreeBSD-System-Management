@@ -8,9 +8,9 @@ date >> /root/System_Maintenance/upgrade/progress.txt
 echo "rm -rf /var/tmp/temproot"
 rm -rf /var/tmp/temproot
 date >> /root/System_Maintenance/upgrade/progress.txt
-echo "cvsup /tmp/system-upgrade" >> /root/System_Maintenance/upgrade/progress.txt
+echo "cvsup ./system-upgrade" >> /root/System_Maintenance/upgrade/progress.txt
 echo "" >> /root/System_Maintenance/upgrade/progress.txt
-/usr/local/bin/cvsup /tmp/system-upgrade
+/usr/local/bin/cvsup ./system-upgrade
 
 if ($? == "0") then
   cd /usr/src/
