@@ -1,7 +1,13 @@
 #!/bin/csh
 
-echo "cvsup ./ports-supfile"
-/usr/local/bin/cvsup ./ports-supfile
+# Check if SVN
+if -d /usr/ports/.svn then
+  echo "cd /usr/ports && svn update"
+  cd /usr/ports && svn update
+else
+  echo "svn co https://svn0.us-west.FreeBSD.org/ports/head /usr/ports"
+  svn co https://svn0.us-west.FreeBSD.org/ports/head /usr/ports
+endif
 
 if ($? == "0") then
   echo "make fetchindex"
