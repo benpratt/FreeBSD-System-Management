@@ -23,9 +23,8 @@ if -d /usr/src/.svn then
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   cd /usr/src && svn update
 else
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "svn co svn://svn.freebsd.org/base/head /usr/src" >> /root/FreeBSD-System-Maintenance/upgrade
-_system/progress.txt
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "svn co svn://svn.freebsd.org/base/head /usr/src" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   svn co svn://svn.freebsd.org/base/head /usr/src
 endif
