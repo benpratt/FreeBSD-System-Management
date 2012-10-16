@@ -5,8 +5,8 @@ if -d /usr/ports/.svn then
   echo "cd /usr/ports && svn update"
   cd /usr/ports && svn update
 else
-  echo "svn co https://svn0.us-west.FreeBSD.org/ports/head /usr/ports"
-  svn co https://svn0.us-west.FreeBSD.org/ports/head /usr/ports
+  echo "svn co svn://svn.FreeBSD.org/ports/head /usr/ports"
+  svn co svn://svn.FreeBSD.org/ports/head /usr/ports
 endif
 
 if ($? == "0") then
