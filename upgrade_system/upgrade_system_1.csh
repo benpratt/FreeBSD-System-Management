@@ -1,45 +1,10 @@
 #!/bin/csh
 
-# Setup logging
-rm /root/FreeBSD-System-Maintenance/upgrade_system/progress_last.txt
-cp /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt /root/FreeBSD-System-Maintenance/upgrade_system/progress_last.txt
-rm /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-
-# Cleanup
-date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-echo "rm -rf /var/tmp/temproot"
-rm -rf /var/tmp/temproot
-
-# CVSUP Checkout Method (Retired)
-#date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-#echo "cvsup ./system-upgrade" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-#echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-#/usr/local/bin/cvsup ./system-upgrade
-
-# SVN Checkout Method
-if -d /usr/src/.svn then
-  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "cd /usr/src && svn update" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  cd /usr/src && svn update
-else
-  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "svn co svn://svn.freebsd.org/base/head /usr/src" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  svn co svn://svn.freebsd.org/base/head /usr/src
-endif
-
-if ($? == "0") then
   cd /usr/src/
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   make clean
-else
-  echo "cvsup failed"
-  echo "cvsup failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  exit 0
-endif
 
 if ($? == "0") then
   cd /usr/src/
