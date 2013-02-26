@@ -30,12 +30,6 @@ sed -i "" '/	SMP	/s/^/#/g' MYKERNEL
 sed -i "" '/	apic	/s/^/#/g' MYKERNEL
 sed -i "" '/	eisa/s/^/#/g' MYKERNEL
 sed -i "" '/	fdc/s/^/#/g' MYKERNEL
-sed -i "" '/	ahci	/s/^/#/g' MYKERNEL
-sed -i "" '/	ata	/s/^/#/g' MYKERNEL
-sed -i "" '/	ATA_CAM	/s/^/#/g' MYKERNEL
-sed -i "" '/	ATA_STATIC_ID	/s/^/#/g' MYKERNEL
-sed -i "" '/	mvs	/s/^/#/g' MYKERNEL
-sed -i "" '/	siis	/s/^/#/g' MYKERNEL
 sed -i "" '/	ahb	/s/^/#/g' MYKERNEL
 sed -i "" '/	ahc	/s/^/#/g' MYKERNEL
 sed -i "" '/	AHC_REG_PRETTY_PRINT	/s/^/#/g' MYKERNEL
@@ -59,12 +53,8 @@ sed -i "" '/	ncv	/s/^/#/g' MYKERNEL
 sed -i "" '/	nsp	/s/^/#/g' MYKERNEL
 sed -i "" '/	stg	/s/^/#/g' MYKERNEL
 sed -i "" '/	isci	/s/^/#/g' MYKERNEL
-sed -i "" '/	scbus	/s/^/#/g' MYKERNEL
 sed -i "" '/	ch	/s/^/#/g' MYKERNEL
-sed -i "" '/	da	/s/^/#/g' MYKERNEL
 sed -i "" '/	sa	/s/^/#/g' MYKERNEL
-sed -i "" '/	cd	/s/^/#/g' MYKERNEL
-sed -i "" '/	pass	/s/^/#/g' MYKERNEL
 sed -i "" '/	ses	/s/^/#/g' MYKERNEL
 sed -i "" '/	ctl	/s/^/#/g' MYKERNEL
 sed -i "" '/	amr	/s/^/#/g' MYKERNEL
