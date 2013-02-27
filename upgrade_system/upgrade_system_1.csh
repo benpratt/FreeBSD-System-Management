@@ -15,10 +15,14 @@ cp GENERIC MYKERNEL
 sed -i "" '/	I486_CPU/s/^/#/g' MYKERNEL
 sed -i "" '/	I586_CPU/s/^/#/g' MYKERNEL
 sed -i "" '/	GENERIC/s//	MYKERNEL/g' MYKERNEL
+
 sed -i "" '/	DEBUG=-g	/s/^/#/g' MYKERNEL
 sed -i "" '/	WITH_CTF=1	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	GEOM_RAID	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	KDB	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	DDB	/s/^/#/g' MYKERNEL
 sed -i "" '/	DEADLKRES	/s/^/#/g' MYKERNEL
 sed -i "" '/	INVARIANTS	/s/^/#/g' MYKERNEL
@@ -26,10 +30,14 @@ sed -i "" '/	INVARIANT_SUPPORT	/s/^/#/g' MYKERNEL
 sed -i "" '/	WITNESS	/s/^/#/g' MYKERNEL
 sed -i "" '/	WITNESS_SKIPSPIN	/s/^/#/g' MYKERNEL
 sed -i "" '/	MALLOC_DEBUG_MAXZONES/s/^/#/g' MYKERNEL
+
 sed -i "" '/	SMP	/s/^/#/g' MYKERNEL
 sed -i "" '/	apic	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	eisa/s/^/#/g' MYKERNEL
+
 sed -i "" '/	fdc/s/^/#/g' MYKERNEL
+
 sed -i "" '/	ahb	/s/^/#/g' MYKERNEL
 sed -i "" '/	ahc	/s/^/#/g' MYKERNEL
 sed -i "" '/	AHC_REG_PRETTY_PRINT	/s/^/#/g' MYKERNEL
@@ -44,6 +52,7 @@ sed -i "" '/	mps	/s/^/#/g' MYKERNEL
 sed -i "" '/	ncr	/s/^/#/g' MYKERNEL
 sed -i "" '/	sym	/s/^/#/g' MYKERNEL
 sed -i "" '/	trm	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	adv	/s/^/#/g' MYKERNEL
 sed -i "" '/	adw	/s/^/#/g' MYKERNEL
 sed -i "" '/	aha	/s/^/#/g' MYKERNEL
@@ -53,10 +62,12 @@ sed -i "" '/	ncv	/s/^/#/g' MYKERNEL
 sed -i "" '/	nsp	/s/^/#/g' MYKERNEL
 sed -i "" '/	stg	/s/^/#/g' MYKERNEL
 sed -i "" '/	isci	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	ch	/s/^/#/g' MYKERNEL
 sed -i "" '/	sa	/s/^/#/g' MYKERNEL
 sed -i "" '/	ses	/s/^/#/g' MYKERNEL
-sed -i "" '/	ctl	/s/^/#/g' MYKERNEL
+#sed -i "" '/	ctl	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	amr	/s/^/#/g' MYKERNEL
 sed -i "" '/	arcmsr	/s/^/#/g' MYKERNEL
 sed -i "" '/	asr	/s/^/#/g' MYKERNEL
@@ -70,6 +81,7 @@ sed -i "" '/	ips	/s/^/#/g' MYKERNEL
 sed -i "" '/	mly	/s/^/#/g' MYKERNEL
 sed -i "" '/	twa	/s/^/#/g' MYKERNEL
 sed -i "" '/	tws	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	aac	/s/^/#/g' MYKERNEL
 sed -i "" '/	aacp	/s/^/#/g' MYKERNEL
 sed -i "" '/	ida	/s/^/#/g' MYKERNEL
@@ -77,16 +89,21 @@ sed -i "" '/	mfi	/s/^/#/g' MYKERNEL
 sed -i "" '/	mlx	/s/^/#/g' MYKERNEL
 sed -i "" '/	pst	/s/^/#/g' MYKERNEL
 sed -i "" '/	twe	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	cbb	/s/^/#/g' MYKERNEL
 sed -i "" '/	pccard	/s/^/#/g' MYKERNEL
 sed -i "" '/	cardbus	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	uart	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	ppc/s/^/#/g' MYKERNEL
 sed -i "" '/	ppbus	/s/^/#/g' MYKERNEL
 sed -i "" '/	lpt	/s/^/#/g' MYKERNEL
 sed -i "" '/	ppi	/s/^/#/g' MYKERNEL
 sed -i "" '/	vpo	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	puc	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	bxe	/s/^/#/g' MYKERNEL
 sed -i "" '/	de	/s/^/#/g' MYKERNEL
 sed -i "" '/	igb	/s/^/#/g' MYKERNEL
@@ -95,6 +112,7 @@ sed -i "" '/	le	/s/^/#/g' MYKERNEL
 sed -i "" '/	ti	/s/^/#/g' MYKERNEL
 sed -i "" '/	txp	/s/^/#/g' MYKERNEL
 sed -i "" '/	vx	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	ae	/s/^/#/g' MYKERNEL
 sed -i "" '/	age	/s/^/#/g' MYKERNEL
 sed -i "" '/	alc	/s/^/#/g' MYKERNEL
@@ -126,6 +144,7 @@ sed -i "" '/	vge	/s/^/#/g' MYKERNEL
 sed -i "" '/	vr	/s/^/#/g' MYKERNEL
 sed -i "" '/	vte	/s/^/#/g' MYKERNEL
 sed -i "" '/	wb	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	cs	/s/^/#/g' MYKERNEL
 sed -i "" '/	ed	/s/^/#/g' MYKERNEL
 sed -i "" '/	ex	/s/^/#/g' MYKERNEL
@@ -134,6 +153,7 @@ sed -i "" '/	fe	/s/^/#/g' MYKERNEL
 sed -i "" '/	ie	/s/^/#/g' MYKERNEL
 sed -i "" '/	sn	/s/^/#/g' MYKERNEL
 sed -i "" '/	xe	/s/^/#/g' MYKERNEL
+
 sed -i "" '/	wlan	/s/^/#/g' MYKERNEL
 sed -i "" '/	IEEE80211_DEBUG/s/^/#/g' MYKERNEL
 sed -i "" '/	IEEE80211_AMPDU_AGE/s/^/#/g' MYKERNEL
