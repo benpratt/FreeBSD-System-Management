@@ -63,9 +63,9 @@ sed -i "" '/	nsp	/s/^/#/g' MYKERNEL
 sed -i "" '/	stg	/s/^/#/g' MYKERNEL
 sed -i "" '/	isci	/s/^/#/g' MYKERNEL
 
-sed -i "" '/	ch	/s/^/#/g' MYKERNEL
-sed -i "" '/	sa	/s/^/#/g' MYKERNEL
-sed -i "" '/	ses	/s/^/#/g' MYKERNEL
+#sed -i "" '/	ch	/s/^/#/g' MYKERNEL
+#sed -i "" '/	sa	/s/^/#/g' MYKERNEL
+#sed -i "" '/	ses	/s/^/#/g' MYKERNEL
 #sed -i "" '/	ctl	/s/^/#/g' MYKERNEL
 
 sed -i "" '/	amr	/s/^/#/g' MYKERNEL
