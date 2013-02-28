@@ -24,6 +24,7 @@ sed -i "" '/	GEOM_RAID	/s/^/#/g' MYKERNEL
 sed -i "" '/	KDB	/s/^/#/g' MYKERNEL
 
 sed -i "" '/	DDB	/s/^/#/g' MYKERNEL
+sed -i "" '/	GDB	/s/^/#/g' MYKERNEL
 sed -i "" '/	DEADLKRES	/s/^/#/g' MYKERNEL
 sed -i "" '/	INVARIANTS	/s/^/#/g' MYKERNEL
 sed -i "" '/	INVARIANT_SUPPORT	/s/^/#/g' MYKERNEL
