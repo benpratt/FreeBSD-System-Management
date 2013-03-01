@@ -206,7 +206,7 @@ echo "options		IPDIVERT" >> MYKERNEL
 echo "" >> MYKERNEL
 
 echo "# CD-RW Support" >> MYKERNEL
-echo "device		atapicam" >> MYKERNEL
+echo "#device		atapicam" >> MYKERNEL
 echo "" >> MYKERNEL
 
 echo "# Dummynet Support" >> MYKERNEL
