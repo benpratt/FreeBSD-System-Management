@@ -217,9 +217,23 @@ echo "#options		HZ=1000" >> MYKERNEL
 
 cd /usr/src/
 date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-echo "make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+echo "make cleanworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-make clean
+make cleanworld
+
+# Clean /usr/src
+
+if ($? == "0") then
+  cd /usr/src/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make clean
+else
+  echo "cleanworld failed"
+  echo "cleanworld failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  exit 0
+endif
 
 # Build the world
 
