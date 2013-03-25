@@ -120,7 +120,6 @@ sed -i "" '/	alc	/s/^/#/g' MYKERNEL
 sed -i "" '/	ale	/s/^/#/g' MYKERNEL
 sed -i "" '/	bce	/s/^/#/g' MYKERNEL
 sed -i "" '/	bfe	/s/^/#/g' MYKERNEL
-sed -i "" '/	bge	/s/^/#/g' MYKERNEL
 sed -i "" '/	cas	/s/^/#/g' MYKERNEL
 sed -i "" '/	et	/s/^/#/g' MYKERNEL
 sed -i "" '/	fxp	/s/^/#/g' MYKERNEL
