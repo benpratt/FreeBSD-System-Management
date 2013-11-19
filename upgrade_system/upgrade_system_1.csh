@@ -181,6 +181,12 @@ sed -i "" '/	ral	/s/^/#/g' MYKERNEL
 sed -i "" '/	wi	/s/^/#/g' MYKERNEL
 sed -i "" '/	wl	/s/^/#/g' MYKERNEL
 sed -i "" '/	wpi	/s/^/#/g' MYKERNEL
+sed -i "" '/	virtio	/s/^/#/g' MYKERNEL
+sed -i "" '/	vtnet	/s/^/#/g' MYKERNEL
+set -i "" '/	hyperv	/s/^/#/g' MYKERNEL
+set -i "" '/	XENHVM	/s/^/#/g' MYKERNEL
+set -i "" '/	xenpci	/s/^/#/g' MYKERNEL
+set -i "" '/	vms	/s/^/#/g' MYKERNEL
 
 echo "" >> MYKERNEL
 
