@@ -182,7 +182,7 @@ sed -i "" '/	wi	/s/^/#/g' MYKERNEL
 sed -i "" '/	wl	/s/^/#/g' MYKERNEL
 sed -i "" '/	wpi	/s/^/#/g' MYKERNEL
 sed -i "" '/	virtio	/s/^/#/g' MYKERNEL
-sed -i "" '/	virtio_pci	/s/$/#/g' MYKERNEL
+sed -i "" '/	virtio_pci	/s/^/#/g' MYKERNEL
 sed -i "" '/	vtnet	/s/^/#/g' MYKERNEL
 sed -i "" '/	virtio_blk	/s/^/#/g' MYKERNEL
 sed -i "" '/	virtio_scsi	/s/^/#/g' MYKERNEL
