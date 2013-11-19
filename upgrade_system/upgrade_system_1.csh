@@ -182,11 +182,15 @@ sed -i "" '/	wi	/s/^/#/g' MYKERNEL
 sed -i "" '/	wl	/s/^/#/g' MYKERNEL
 sed -i "" '/	wpi	/s/^/#/g' MYKERNEL
 sed -i "" '/	virtio	/s/^/#/g' MYKERNEL
+sed -i "" '/	virtio_pci	/s/$/#/g' MYKERNEL
 sed -i "" '/	vtnet	/s/^/#/g' MYKERNEL
-set -i "" '/	hyperv	/s/^/#/g' MYKERNEL
-set -i "" '/	XENHVM	/s/^/#/g' MYKERNEL
-set -i "" '/	xenpci	/s/^/#/g' MYKERNEL
-set -i "" '/	vms	/s/^/#/g' MYKERNEL
+sed -i "" '/	virtio_blk	/s/^/#/g' MYKERNEL
+sed -i "" '/	virtio_scsi	/s/^/#/g' MYKERNEL
+sed -i "" '/	virtio_balloon	/s/^/#/g' MYKERNEL
+sed -i "" '/	hyperv	/s/^/#/g' MYKERNEL
+sed -i "" '/	XENHVM	/s/^/#/g' MYKERNEL
+sed -i "" '/	xenpci	/s/^/#/g' MYKERNEL
+sed -i "" '/	vmx	/s/^/#/g' MYKERNEL
 
 echo "" >> MYKERNEL
 
