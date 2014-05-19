@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/bin/csh
 
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
