@@ -13,6 +13,7 @@
 # Cleanup
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "rm -rf /var/tmp/temproot"
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   rm -rf /var/tmp/temproot
 
 # SVN Checkout Method
@@ -29,7 +30,6 @@
   endif
 
 # Document end of script
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "Ending 0_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
