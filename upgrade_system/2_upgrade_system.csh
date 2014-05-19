@@ -43,7 +43,7 @@
     echo "make delete-old" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     cd /usr/src
-    make delete-old
+    yes|make delete-old
   else
     echo "mergemaster -p failed"
     echo "mergemaster -p failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
