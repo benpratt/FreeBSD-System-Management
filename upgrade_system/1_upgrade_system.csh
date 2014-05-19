@@ -319,6 +319,5 @@
 # Document end of script
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Ending 1_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.t
-xt
+  echo "Ending 1_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
