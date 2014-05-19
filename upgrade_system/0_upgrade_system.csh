@@ -1,14 +1,14 @@
 #!/bin/csh
 
-# Document start of script
-  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Starting 0_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-
 # Setup logging
   rm /root/FreeBSD-System-Maintenance/upgrade_system/progress_last.txt
   cp /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt /root/FreeBSD-System-Maintenance/upgrade_system/progress_last.txt
   rm /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Document start of script
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Starting 0_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Cleanup
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
