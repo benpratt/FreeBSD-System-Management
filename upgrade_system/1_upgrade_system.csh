@@ -17,6 +17,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
+  continue=empty
   while ($continue != "continue")
     echo "Previous build removed"
     echo "Type continue or end."
@@ -270,6 +271,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
+  continue=empty
   while ($continue != "continue")
     echo "Kernel Modifications Complete"
     echo "Type continue or end."
@@ -299,6 +301,7 @@
 #  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 #
 ## Confirm Continue
+#  continue=empty
 #  while ($continue != "continue")
 #    echo "make cleanworld complete"
 #    echo "Type continue or end."
@@ -328,6 +331,7 @@
 #  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 #
 ## Confirm Continue
+#  continue=empty
 #  while ($continue != "continue")
 #    echo "/usr/src cleaned"
 #    echo "Type continue or end."
@@ -356,6 +360,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
+  continue=empty
   while ($continue != "continue")
     echo "make buildworld complete"
     echo "Type continue or end."
@@ -384,6 +389,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt 
 
 # Confirm Continue
+  continue=empty
   while ($continue != "continue")
     echo "make buildkernel complete"
     echo "Type continue or end."
@@ -412,6 +418,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
+  continue=empty
   while ($continue != "continue")
     echo "make installkernel complete"
     echo "Type continue or end."
