@@ -11,55 +11,111 @@
   echo "/usr/sbin/mergemaster -p" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   /usr/sbin/mergemaster -p
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "mergemaster complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  while ($continue != "continue")
+    echo "mergemaster complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Install the world
-  if ($? == "0") then
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "make installworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    make installworld
-  else
-    echo "mergemaster -p failed"
-    echo "mergemaster -p failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make installworld
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installworld complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  while ($continue != "continue")
+    echo "installworld complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Update remaining config files
-  if ($? == "0") then
-    cd /usr/src/etc/
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "/usr/sbin/mergemaster -p" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    /usr/sbin/mergemaster -p
-  else
-    echo "installworld failed"
-    echo "installworld failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  cd /usr/src/etc/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "/usr/sbin/mergemaster -iF" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  /usr/sbin/mergemaster -iF
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "mergemaster complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  while ($continue != "continue")
+    echo "mergemaster complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Delete obsolete files
-  if ($? == "0") then
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "make delete-old" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    cd /usr/src
-    yes|make delete-old
-  else
-    echo "mergemaster -p failed"
-    echo "mergemaster -p failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make delete-old" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  cd /usr/src
+  yes|make delete-old
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "delete-old complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
-  if ($? == "0") then
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "Time to Reboot!" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "Time to Reboot!"
-  else
-    echo "make delete-old failed"
-    echo "make delete-old failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+# Confirm Continue
+  while ($continue != "continue")
+    echo "delete-old complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
+
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Time to Reboot!" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Time to Reboot!"
 
 # Document end of script
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt

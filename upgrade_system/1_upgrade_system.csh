@@ -1,5 +1,4 @@
 #!/bin/csh
-#Ben
 
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
@@ -13,8 +12,32 @@
   cd /usr/obj
   chflags -R noschg *
   rm -rf *
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Remove Previous Build complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  while ($continue != "continue")
+    echo "Previous build removed"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Updating MYKERNEL
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Updating MYKERNEL" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
   if (`uname -p` == "i386") then
     cd /usr/src/sys/i386/conf/
   else if (`uname -p` == "amd64") then
@@ -242,100 +265,175 @@
   echo "#options                DUMMYNET" >> MYKERNEL
   echo "#options                HZ=1000" >> MYKERNEL
 
-# Clean previous build
-
-  cd /usr/src/
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "make cleanworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "MYKERNEL updated" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  make cleanworld
 
-# Clean /usr/src
+# Confirm Continue
+  while ($continue != "continue")
+    echo "Kernel Modifications Complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
-  if ($? == "0") then
-    cd /usr/src/
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "/usr/src# make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    make clean
-  else
-    echo "cleanworld failed"
-    echo "cleanworld failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+# Removing
+## Clean previous build
+#
+#  cd /usr/src/
+#  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "make cleanworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  make cleanworld
+#  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "make cleanworld complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#
+## Confirm Continue
+#  while ($continue != "continue")
+#    echo "make cleanworld complete"
+#    echo "Type continue or end."
+#    set continue = $<
+#    switch ($continue)
+#      case continue:
+#        breaksw
+#      case end:
+#        exit 0
+#        breaksw
+#      default:
+#        echo "Please enter a valid value."
+#        breaksw
+#    endsw
+#  end
+
+# Removing
+## Clean /usr/src
+#
+#  cd /usr/src/
+#  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "/usr/src# make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  make clean
+#  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "/usr/src cleaned" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+#
+## Confirm Continue
+#  while ($continue != "continue")
+#    echo "/usr/src cleaned"
+#    echo "Type continue or end."
+#    set continue = $<
+#    switch ($continue)
+#      case continue:
+#        breaksw
+#      case end:
+#        exit 0
+#        breaksw
+#      default:
+#        echo "Please enter a valid value."
+#        breaksw
+#    endsw
+#  end
 
 # Build the world
 
-  if ($? == "0") then
-    cd /usr/src/
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "make buildworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    make buildworld
-  else
-    echo "clean failed"
-    echo "clean failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  cd /usr/src/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make buildworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make buildworld
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make buildworld complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
-# Wait for confirmation to continue
-  echo "Confirm continue"
-  read continue
-  if [ "$continue" == "y" ]; then
-    echo "Continuing..."
-  else
-    exit 0
-  endif
+# Confirm Continue
+  while ($continue != "continue")
+    echo "make buildworld complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Build the kernel
 
-  if ($? == "0") then
-    cd /usr/src/
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "make buildkernel KERNCONF=MYKERNEL" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    make buildkernel KERNCONF=MYKERNEL
-  else
-    echo "buildworld failed"
-    echo "buildworld failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  cd /usr/src/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make buildkernel KERNCONF=MYKERNEL" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make buildkernel KERNCONF=MYKERNEL
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make buildkernel complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt 
 
-# Wait for confirmation to continue
-  echo "Confirm continue"
-  read continue
-  if [ "$continue" == "y" ]; then
-    echo "Continuing..."
-  else
-    exit 0
-  endif
+# Confirm Continue
+  while ($continue != "continue")
+    echo "make buildkernel complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Install the kernel
 
-  if ($? == "0") then
-    cd /usr/src/
-    date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "make installkernel KERNCONF=MYKERNEL" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    make installkernel KERNCONF=MYKERNEL
-  else
-    echo "buildkernel failed"
-    echo "buildkernel failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
+  cd /usr/src/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installkernel KERNCONF=MYKERNEL" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make installkernel KERNCONF=MYKERNEL
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installkernel complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  while ($continue != "continue")
+    echo "make installkernel complete"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
 
 # Prompt for reboot
 
-  if ($? == "0") then
     date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "Time to Reboot!" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "Time to Reboot into Single User mode"
-  else
-    echo "installkernel failed"
-    echo "installkernel failed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-    exit 0
-  endif
 
 # Document end of script
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
