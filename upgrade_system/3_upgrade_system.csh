@@ -16,7 +16,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "/usr/obj/ removed"
     echo "Type continue or end."
@@ -43,7 +43,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "/usr/src/ cleaned"
     echo "Type continue or end."

@@ -16,7 +16,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "mergemaster complete"
     echo "Type continue or end."
@@ -43,7 +43,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "installworld complete"
     echo "Type continue or end."
@@ -71,7 +71,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "mergemaster complete"
     echo "Type continue or end."
@@ -99,7 +99,7 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
-  continue=empty
+  set continue=empty
   while ($continue != "continue")
     echo "delete-old complete"
     echo "Type continue or end."
