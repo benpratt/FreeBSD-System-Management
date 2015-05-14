@@ -134,7 +134,7 @@
   sed -i "" '/	ida	/s/^/#/g' MYKERNEL
   sed -i "" '/	mfi	/s/^/#/g' MYKERNEL
   sed -i "" '/	mlx	/s/^/#/g' MYKERNEL
-  set -i "" '/  mrsas /s/^/#/g' MYKERNEL
+  sed -i "" '/  mrsas /s/^/#/g' MYKERNEL
   sed -i "" '/	pst	/s/^/#/g' MYKERNEL
   sed -i "" '/	twe	/s/^/#/g' MYKERNEL
 
