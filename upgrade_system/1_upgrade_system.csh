@@ -12,6 +12,9 @@
   cd /usr/obj
   chflags -R noschg *
   rm -rf *
+  cd /usr/src/
+  make cleandir
+  make cleandir
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "Remove Previous Build complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
@@ -90,6 +93,7 @@
   sed -i "" '/	ispfw	/s/^/#/g' MYKERNEL
   sed -i "" '/	mpt	/s/^/#/g' MYKERNEL
   sed -i "" '/	mps	/s/^/#/g' MYKERNEL
+  sed -i "" '/	mpr	/s/^/#/g' MYKERNEL
   sed -i "" '/	ncr	/s/^/#/g' MYKERNEL
   sed -i "" '/	sym	/s/^/#/g' MYKERNEL
   sed -i "" '/	trm	/s/^/#/g' MYKERNEL
@@ -130,6 +134,7 @@
   sed -i "" '/	ida	/s/^/#/g' MYKERNEL
   sed -i "" '/	mfi	/s/^/#/g' MYKERNEL
   sed -i "" '/	mlx	/s/^/#/g' MYKERNEL
+  set -i "" '/  mrsas /s/^/#/g' MYKERNEL
   sed -i "" '/	pst	/s/^/#/g' MYKERNEL
   sed -i "" '/	twe	/s/^/#/g' MYKERNEL
 
@@ -152,7 +157,10 @@
   sed -i "" '/	bxe	/s/^/#/g' MYKERNEL
   sed -i "" '/	de	/s/^/#/g' MYKERNEL
   sed -i "" '/	igb	/s/^/#/g' MYKERNEL
-  sed -i "" '/	ixgb	/s/^/#/g' MYKERNEL
+  sed -i "" '/	ix	/s/^/#/g' MYKERNEL
+  sed -i "" '/	ixv	/s/^/#/g' MYKERNEL
+  sed -i "" '/	ixl	/s/^/#/g' MYKERNEL
+  sed -i "" '/	ixlv	/s/^/#/g' MYKERNEL
   sed -i "" '/	le	/s/^/#/g' MYKERNEL
   sed -i "" '/	ti	/s/^/#/g' MYKERNEL
   sed -i "" '/	txp	/s/^/#/g' MYKERNEL
