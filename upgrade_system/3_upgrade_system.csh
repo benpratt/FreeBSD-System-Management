@@ -38,6 +38,8 @@
   echo "make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   make clean
+  make cleandir
+  make cleandir
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "/usr/src/ cleaned" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
