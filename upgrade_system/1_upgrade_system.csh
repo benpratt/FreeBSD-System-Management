@@ -26,6 +26,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "Previous build removed"
+    echo "MYKERNEL options update is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -285,6 +286,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "Kernel Modifications Complete"
+    echo "BuildWorld is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -374,6 +376,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "make buildworld complete"
+    echo "Kernel build is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -403,6 +406,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "make buildkernel complete"
+    echo "Kernel install is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -432,6 +436,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "make installkernel complete"
+    echo "Reboot is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
