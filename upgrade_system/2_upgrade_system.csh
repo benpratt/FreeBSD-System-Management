@@ -22,6 +22,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "mergemaster complete"
+    echo "InstallWorld is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -49,6 +50,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "installworld complete"
+    echo "Updating remaining config files is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -77,6 +79,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "mergemaster complete"
+    echo "Delete obsolete files is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -105,6 +108,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "delete-old complete"
+    echo "Reboot is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
