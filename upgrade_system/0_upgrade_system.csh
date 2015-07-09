@@ -28,6 +28,8 @@
     date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "/usr/src updated" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+    svn info >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+    echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   else
     date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
     echo "svn co svn://svn.freebsd.org/base/head /usr/src" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
