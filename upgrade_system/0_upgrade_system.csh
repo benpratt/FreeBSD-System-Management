@@ -46,4 +46,4 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Create link for next script
-  ln -s 1_upgrade_system.csh _next.csh
+  ln -s /root/FreeBSD-System-Maintenance/upgrade_system/1_upgrade_system.csh /root/FreeBSD-System-Maintenance/upgrade_system/_next.csh
