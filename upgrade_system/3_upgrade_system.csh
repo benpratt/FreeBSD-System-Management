@@ -1,5 +1,8 @@
 #!/bin/csh
 
+# Remove link for next script
+  rm _next.csh
+
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "Starting 3_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
