@@ -22,6 +22,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "/usr/obj/ removed"
+    echo "make clean of /usr/src/ is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -51,6 +52,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "/usr/src/ cleaned"
+    echo "Almost done!"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
