@@ -42,3 +42,6 @@
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "Ending 0_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Create link for next script
+  ln -s 1_upgrade_system.csh _next.csh
