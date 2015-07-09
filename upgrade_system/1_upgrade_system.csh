@@ -1,7 +1,7 @@
 #!/bin/csh
 
 # Remove link for next script
-  rm _next.csh
+  rm /root/FreeBSD-System-Maintenance/upgrade_system/_next.csh
 
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
@@ -460,4 +460,4 @@
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Create link for next script
-  ln -s 2_upgrade_system.csh _next.csh
+  ln -s /root/FreeBSD-System-Maintenance/upgrade_system/2_upgrade_system.csh /root/FreeBSD-System-Maintenance/upgrade_system/_next.csh
