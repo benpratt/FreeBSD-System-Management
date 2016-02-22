@@ -244,9 +244,12 @@
   sed -i "" '/	virtio_scsi/s/^/#/g' MYKERNEL
   sed -i "" '/	virtio_balloon/s/^/#/g' MYKERNEL
   sed -i "" '/	hyperv	/s/^/#/g' MYKERNEL
+  sed -i "" '/	HYPERV	/s/^/#/g' MYKERNEL
   sed -i "" '/	XENHVM	/s/^/#/g' MYKERNEL
   sed -i "" '/	xenpci	/s/^/#/g' MYKERNEL
   sed -i "" '/	vmx	/s/^/#/g' MYKERNEL
+
+  sed -i "" '/	pmspcv	/s/^/#/g' MYKERNEL
 
   echo "" >> MYKERNEL
 
