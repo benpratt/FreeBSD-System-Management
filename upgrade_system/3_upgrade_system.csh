@@ -5,7 +5,7 @@
 
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Starting 3_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Starting 4_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
   cd /usr/obj/
@@ -74,5 +74,5 @@
 # Document end of script
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Ending 3_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Ending 4_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
