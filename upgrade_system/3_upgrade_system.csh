@@ -5,54 +5,110 @@
 
 # Document start of script
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Starting 4_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Starting 3_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
-  cd /usr/obj/
-  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "rm -rf *" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  chflags -R noschg *
-  rm -rf *
-  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "/usr/obj/ removed" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-
-# Confirm Continue
-  set continue=empty
-  while ($continue != "continue")
-    echo "/usr/obj/ removed"
-    echo "make clean of /usr/src/ is next"
-    echo "Type continue or end."
-    set continue = $<
-    switch ($continue)
-      case continue:
-        breaksw
-      case end:
-        exit 0
-        breaksw
-      default:
-        echo "Please enter a valid value."
-        breaksw
-    endsw
-  end
-
+# Update installworld config files
   cd /usr/src/
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "make clean" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "/usr/sbin/mergemaster -p" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  make clean
-  make cleandir
-  make cleandir
+  /usr/sbin/mergemaster -p
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "/usr/src/ cleaned" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "mergemaster complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
 
 # Confirm Continue
   set continue=empty
   while ($continue != "continue")
-    echo "/usr/src/ cleaned"
-    echo "Almost done!"
+    echo "mergemaster complete"
+    echo "InstallWorld is next"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
+
+# Install the world
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installworld" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  make installworld
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make installworld complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  set continue=empty
+  while ($continue != "continue")
+    echo "installworld complete"
+    echo "Updating remaining config files is next"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
+
+# Update remaining config files
+  cd /usr/src/etc/
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "/usr/sbin/mergemaster -iF" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  /usr/sbin/mergemaster -iF
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "mergemaster complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  set continue=empty
+  while ($continue != "continue")
+    echo "mergemaster complete"
+    echo "Delete obsolete files is next"
+    echo "Type continue or end."
+    set continue = $<
+    switch ($continue)
+      case continue:
+        breaksw
+      case end:
+        exit 0
+        breaksw
+      default:
+        echo "Please enter a valid value."
+        breaksw
+    endsw
+  end
+
+# Delete obsolete files
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "make delete-old" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  cd /usr/src
+  yes|make delete-old
+  date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "delete-old complete" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Confirm Continue
+  set continue=empty
+  while ($continue != "continue")
+    echo "delete-old complete"
+    echo "Reboot is next"
     echo "Type continue or end."
     set continue = $<
     switch ($continue)
@@ -68,11 +124,15 @@
   end
 
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "All done!" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "All done!"
+  echo "Time to Reboot!" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Time to Reboot!"
 
 # Document end of script
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   date >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
-  echo "Ending 4_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+  echo "Ending 3_upgrade_system.csh" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
   echo "" >> /root/FreeBSD-System-Maintenance/upgrade_system/progress.txt
+
+# Create link for next script
+  ln -s /root/FreeBSD-System-Maintenance/upgrade_system/3_upgrade_system.csh /root/FreeBSD-System-Maintenance/upgrade_system/_next.csh
