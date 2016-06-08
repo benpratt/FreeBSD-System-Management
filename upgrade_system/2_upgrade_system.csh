@@ -286,7 +286,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "make buildkernel complete"
-    mail -s "buildkernel complete" ben@thegeekzone.com <<< "buildkernel is complete. Kernel install is next."
+#    mail -s "buildkernel complete" ben@thegeekzone.com <<< "buildkernel is complete. Kernel install is next."
     echo "Kernel install is next"
     echo "Type continue or end."
     set continue = $<
@@ -317,7 +317,7 @@
   set continue=empty
   while ($continue != "continue")
     echo "make installkernel complete"
-    mail -s "installkernel complete" ben@thegeekzone.com <<< "buildkernel is complete. Reboot is next."
+#    mail -s "installkernel complete" ben@thegeekzone.com <<< "buildkernel is complete. Reboot is next."
     echo "Reboot is next"
     echo "Type continue or end."
     set continue = $<
