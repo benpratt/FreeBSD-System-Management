@@ -55,7 +55,7 @@
 # Confirm Continue
   set continue=empty
   while ($continue != "continue")
-    mail -s "buildworld complete" ben@thegeekzone.com <<< "buildworld is complete. Kernel build is next"
+#    mail -s "buildworld complete" ben@thegeekzone.com <<< "buildworld is complete. Kernel build is next"
     echo "make buildworld complete"
     echo "Kernel build is next"
     echo "Type continue or end."
